@@ -1,0 +1,21 @@
+﻿@model Tarazism.Models.MediaMatrix
+@{
+    var items = Model?.Items ?? Enumerable.Empty<Tarazism.Models.MatrixItem>();
+    var title = Model?.Title ?? "Matrix";
+}
+<h2 class="text-3xl font-bold mb-6">@title</h2>
+<tbody>
+    @foreach (var item in items) {
+        /* same row markup */
+    }
+</tbody>
+
+@functions {
+    public string RenderStars(int count)
+    {
+        count = Math.Clamp(count, 0, 5);
+        var filled = string.Concat(Enumerable.Repeat("<span class='text-yellow-500 text-lg'>★</span>", count));
+        var empty  = string.Concat(Enumerable.Repeat("<span class='text-gray-400 dark:text-gray-600 text-lg'>★</span>", 5 - count));
+        return filled + empty;
+    }
+}

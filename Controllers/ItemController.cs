@@ -27,5 +27,48 @@ namespace Tarazism.Controllers
             ViewData["Reviews"] = reviews;
             return View(model);
         }
+
+        // Moved matrix and ViewBag assignment into an action method
+        public IActionResult Matrix()
+        {
+            var matrix = new MediaMatrix
+            {
+                Title = "Tarazism Media Matrix",
+                Items = new()
+                {
+                    new MatrixItem {
+                        Name = "Mushishi",
+                        Category = "Anime",
+                        ImageUrl = "/img/matrix/mushishi.jpg",
+                        Atmosphere = 5,
+                        Lore = 4,
+                        Depth = 5,
+                        Balance = 5
+                    },
+                    new MatrixItem {
+                        Name = "The Witcher 3",
+                        Category = "Game",
+                        ImageUrl = "/img/matrix/witcher.jpg",
+                        Atmosphere = 5,
+                        Lore = 5,
+                        Depth = 4,
+                        Balance = 5
+                    },
+                    new MatrixItem {
+                        Name = "Dune",
+                        Category = "Book",
+                        ImageUrl = "/img/matrix/dune.jpg",
+                        Atmosphere = 4,
+                        Lore = 5,
+                        Depth = 5,
+                        Balance = 4
+                    }
+                }
+            };
+
+            ViewBag.Matrix = matrix;
+            return View();
+        }
     }
 }
+

@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home";
 }
 @using Tarazism.Models
-
+<partial name="_TarazismMatrix" model="ViewBag.Matrix" />
 <!-- HERO -->
 <section class="mb-28 reveal">
     <partial name="_TarazismHero" />
@@ -209,6 +209,14 @@
         Icon = "✨"
     }
 })" />
+
+
+@model List<TarazCollection>
+
+<!-- Your sections here -->
+
+<partial name="_TarazismCollections" model="Model" />
+
 
 <partial name="_TarazismQuoteFlow" model="@(new List<QuoteItem> {
     new QuoteItem {
