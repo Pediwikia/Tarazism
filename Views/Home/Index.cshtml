@@ -2,299 +2,265 @@
     ViewData["Title"] = "Home";
 }
 @using Tarazism.Models
-<partial name="_TarazismMatrix" model="ViewBag.Matrix" />
-<!-- HERO -->
+
+<!-- ===================== -->
+<!-- 1. HERO -->
+<!-- ===================== -->
 <section class="mb-28 reveal">
     <partial name="_TarazismHero" />
 </section>
-<partial name="_TarazismSpotlight" model='new SpotlightItem {
-    Title = "Ghost in the Shell",
-    Subtitle = "A cyberpunk meditation on identity and consciousness.",
-    ImageUrl = "/img/spotlight/gits.jpg",
-    Description = "This work captures the essence of Tarazism: philosophical depth, aesthetic precision, emotional restraint, and meticulous craftsmanship.",
-    ButtonText = "Learn More",
-    ButtonUrl = "/details/gits"
-}' />
 
-<!-- FEATURED GALLERY -->
+
+<!-- ===================== -->
+<!-- 2. SPOTLIGHT -->
+<!-- ===================== -->
+<section class="mb-28 reveal">
+    <partial name="_TarazismSpotlight" model='new SpotlightItem {
+        Title = "Ghost in the Shell",
+        Subtitle = "A cyberpunk meditation on identity and consciousness.",
+        ImageUrl = "/img/spotlight/gits.jpg",
+        Description = "This work captures the essence of Tarazism: philosophical depth, aesthetic precision, emotional restraint, and meticulous craftsmanship.",
+        ButtonText = "Learn More",
+        ButtonUrl = "/details/gits"
+    }' />
+</section>
+
+
+<!-- ===================== -->
+<!-- 3. FEATURED GALLERY -->
+<!-- ===================== -->
 <section id="featured" class="mb-28 reveal">
     <h2 class="text-3xl font-bold mb-6">Featured Works</h2>
 
     <partial name="_TarazismGallery" model="@(new List<GalleryItem> {
-                                             new GalleryItem { ImageUrl = "/img/gallery/jojo.jpg", Title = "Jojo's Bizzare Adventure'", Category = "Anime" },
-                                             new GalleryItem { ImageUrl = "/img/gallery/The Witcher Games.jpg", Title = "The Witcher 3", Category = "Game" },
-                                             new GalleryItem { ImageUrl = "/img/gallery/3.jpg", Title = "Qazvin Streets", Category = "Photography" },
-                                             new GalleryItem { ImageUrl = "/img/gallery/Hagakure.jpg", Title = "Hagakure", Category = "Book" },
-                                             new GalleryItem { ImageUrl = "/img/gallery/Violet Evergarden.jpg", Title = "Violet Evergarden", Category = "Anime" },
-                                             new GalleryItem { ImageUrl = "/img/gallery/NieR Automata.jpg", Title = "NieR: Automata", Category = "Game" },
-                                         })" />
+        new GalleryItem { ImageUrl = "/img/gallery/jojo.jpg", Title = "JoJo's Bizarre Adventure", Category = "Anime" },
+        new GalleryItem { ImageUrl = "/img/gallery/The Witcher Games.jpg", Title = "The Witcher 3", Category = "Game" },
+        new GalleryItem { ImageUrl = "/img/gallery/3.jpg", Title = "Qazvin Streets", Category = "Photography" },
+        new GalleryItem { ImageUrl = "/img/gallery/Hagakure.jpg", Title = "Hagakure", Category = "Book" },
+        new GalleryItem { ImageUrl = "/img/gallery/Violet Evergarden.jpg", Title = "Violet Evergarden", Category = "Anime" },
+        new GalleryItem { ImageUrl = "/img/gallery/NieR Automata.jpg", Title = "NieR: Automata", Category = "Game" },
+    })" />
 </section>
-<partial name="_TarazismTrending" model="@(new List<TrendingItem> {
-    new TrendingItem { Rank = 1, Title = "F1 2025", ImageUrl = "/img/gallery/F1 2025.jpg", Category = "Film" },
-    new TrendingItem { Rank = 2, Title = "Elden Ring", ImageUrl = "/img/gallery/Elden Ring.jpg", Category = "Game" },
-    new TrendingItem { Rank = 3, Title = "Your Name", ImageUrl = "/img/gallery/5.jpg", Category = "Anime" },
-    new TrendingItem { Rank = 4, Title = "Qazvin Streets", ImageUrl = "/img/gallery/3.jpg", Category = "Photography" },
-    new TrendingItem { Rank = 5, Title = "Hagakure", ImageUrl = "/img/gallery/Hagakure.jpg", Category = "Book" },
-    new TrendingItem { Rank = 6, Title = "The Witcher 3", ImageUrl = "/img/gallery/Witcher 3.jpg", Category = "Game" }
-})" />
 
-<partial name="_TarazismScore" model='new TarazScore {
-    Title = "Blade Runner 2049",
-    ImageUrl = "/img/gallery/5.jpg",
-    Balance = 9,
-    Craft = 10,
-    Emotion = 8,
-    Aesthetic = 10
-}' />
 
-    
-<partial name="_TarazismUpcoming" model="@(new List<UpcomingItem> {
-    new UpcomingItem {
-        Title = "GTA VI",
-        Category = "Game",
-        ImageUrl = "/img/gallery/GTA VI.jpg",
-        ReleaseDate = DateTime.Parse("2025-08-15")
-    },
-    new UpcomingItem {
-        Title = "Coming Soon!",
-        Category = "Film",
-        ImageUrl = "/img/gallery/4.jpg",
-        ReleaseDate = DateTime.Parse("2025-11-10")
-    },
-    new UpcomingItem {
-        Title = "Steel Ball Run",
-        Category = "Anime",
-        ImageUrl = "/img/gallery/Steel ball run.jpg",
-        ReleaseDate = DateTime.Parse("2025-06-01")
-    },
-    new UpcomingItem {
-        Title = "Tarab",
-        Category = "Book",
-        ImageUrl = "/img/gallery/1.jpg",
-        ReleaseDate = DateTime.Parse("2025-12-05")
-    }
-})" />
+<!-- ===================== -->
+<!-- 4. TRENDING -->
+<!-- ===================== -->
+<section class="mb-28 reveal">
+    <partial name="_TarazismTrending" model="@(new List<TrendingItem> {
+        new TrendingItem { Rank = 1, Title = "F1 2025", ImageUrl = "/img/gallery/F1 2025.jpg", Category = "Film" },
+        new TrendingItem { Rank = 2, Title = "Elden Ring", ImageUrl = "/img/gallery/Elden Ring.jpg", Category = "Game" },
+        new TrendingItem { Rank = 3, Title = "Your Name", ImageUrl = "/img/gallery/5.jpg", Category = "Anime" },
+        new TrendingItem { Rank = 4, Title = "Qazvin Streets", ImageUrl = "/img/gallery/3.jpg", Category = "Photography" },
+        new TrendingItem { Rank = 5, Title = "Hagakure", ImageUrl = "/img/gallery/Hagakure.jpg", Category = "Book" },
+        new TrendingItem { Rank = 6, Title = "The Witcher 3", ImageUrl = "/img/gallery/Witcher 3.jpg", Category = "Game" }
+    })" />
+</section>
 
-<!-- TARAZ NOTES (NEW SECTION A) -->
-<section id="taraz-notes" class="mb-28 reveal">
-    <partial name="_TarazismNotes" model="@(new List<TarazNote> {
-        new TarazNote {
-            Quote = "Balance is not found. It is created.",
-            Author = "Tarazism Philosophy",
-            Accent = "#0B74FF"
+
+<!-- ===================== -->
+<!-- 5. TARAZ SCORE -->
+<!-- ===================== -->
+<section class="mb-28 reveal">
+    <partial name="_TarazismScore" model='new TarazScore {
+        Title = "Blade Runner 2049",
+        ImageUrl = "/img/gallery/5.jpg",
+        Balance = 9,
+        Craft = 10,
+        Emotion = 8,
+        Aesthetic = 10
+    }' />
+</section>
+
+
+<!-- ===================== -->
+<!-- 6. UPCOMING -->
+<!-- ===================== -->
+<section class="mb-28 reveal">
+    <partial name="_TarazismUpcoming" model="@(new List<UpcomingItem> {
+        new UpcomingItem {
+            Title = "GTA VI",
+            Category = "Game",
+            ImageUrl = "/img/gallery/GTA VI.jpg",
+            ReleaseDate = DateTime.Parse("2025-08-15")
         },
-        new TarazNote {
-            Quote = "When the mind is still, truth becomes clear.",
-            Author = "Persian Proverb",
-            Accent = "#FFB86B"
+        new UpcomingItem {
+            Title = "Coming Soon!",
+            Category = "Film",
+            ImageUrl = "/img/gallery/4.jpg",
+            ReleaseDate = DateTime.Parse("2025-11-10")
         },
-        new TarazNote {
-            Quote = "Simplicity is the ultimate sophistication.",
-            Author = "Leonardo da Vinci",
-            Accent = "#22C55E"
+        new UpcomingItem {
+            Title = "Steel Ball Run",
+            Category = "Anime",
+            ImageUrl = "/img/gallery/Steel ball run.jpg",
+            ReleaseDate = DateTime.Parse("2025-06-01")
+        },
+        new UpcomingItem {
+            Title = "Tarab",
+            Category = "Book",
+            ImageUrl = "/img/gallery/1.jpg",
+            ReleaseDate = DateTime.Parse("2025-12-05")
         }
     })" />
 </section>
-<partial name="_TarazismCollections" model="@(new List<TarazCollection> {
 
-    new TarazCollection {
-        Title = "Philosophical Masterpieces",
-        Subtitle = "Deep stories with strong themes of balance and human nature.",
-        Items = new List<CollectionItem> {
-            new CollectionItem { Title = "Maste Eshgh", ImageUrl = "/img/gallery/5.jpg", Category = "Film" },
-            new CollectionItem { Title = "The Prince ", ImageUrl = "/img/gallery/The Prince Makiavelli.jpg", Category = "Book" },
-            new CollectionItem { Title = "Ghost in the Shell", ImageUrl = "/img/gallery/Ghost in the Shell.jpg", Category = "Anime" },
-            new CollectionItem { Title = "Nier: Automata", ImageUrl = "/img/gallery/NieR Automata.jpg", Category = "Game" }
-        }
-    },
 
-    new TarazCollection {
-        Title = "Atmospheric Worlds",
-        Subtitle = "Immersive universes with rich visual storytelling.",
-        Items = new List<CollectionItem> {
-            new CollectionItem { Title = "Spirited Away", ImageUrl = "/img/gallery/Spirited Away.jpg", Category = "Anime" },
-            new CollectionItem { Title = "Qazvin Streets", ImageUrl = "/img/gallery/3.jpg", Category = "Photography" },
-            new CollectionItem { Title = "Elden Ring", ImageUrl = "/img/gallery/Elden Ring.jpg", Category = "Game" },
-            new CollectionItem { Title = "Taramp", ImageUrl = "/img/gallery/5.jpg", Category = "Film" }
-        }
-    },
-
-    new TarazCollection {
-        Title = "Taraz Essentials",
-        Subtitle = "Foundational works representing balance, craftsmanship, and artistry.",
-        Items = new List<CollectionItem> {
-            new CollectionItem { Title = "Pedio", ImageUrl = "/img/gallery/5.jpg", Category = "Anime" },
-            new CollectionItem { Title = "The Witcher 3", ImageUrl = "/img/gallery/Witcher 3.jpg", Category = "Game" },
-            new CollectionItem { Title = "Dune", ImageUrl = "/img/gallery/4.jpg", Category = "Book" },
-            new CollectionItem { Title = "CyberTarab", ImageUrl = "/img/gallery/5.jpg", Category = "Film" }
-        }
-    }
-
-})" />
-<partial name="_TarazismPhilosophy" />
-
+<!-- ===================== -->
+<!-- 7. TARAZ NOTES -->
+<!-- ===================== -->
+<section class="mb-28 reveal">
     <partial name="_TarazismNotes" model="@(new List<TarazNote> {
-
-    new TarazNote {
-        Title = "The Beauty of Restraint",
-        Text = "True artistry is not found in chaos, but in what is intentionally left unsaid.",
-        Category = "Philosophy",
-        Icon = "✨"
-    },
-
-    new TarazNote {
-        Title = "Atmosphere Over Action",
-        Text = "Some worlds speak more through silence than through noise. This is the essence of Taraz.",
-        Category = "Aesthetics",
-        Icon = "🌫"
-    },
-
-    new TarazNote {
-        Title = "Craft Reveals the Soul",
-        Text = "When creators obsess over detail, the viewer feels it — even if they cannot explain why.",
-        Category = "Craft",
-        Icon = "🛠"
-    },
-
-    new TarazNote {
-        Title = "The Weight of a Moment",
-        Text = "A single well-crafted scene can outweigh an entire season of empty spectacle.",
-        Category = "Storytelling",
-        Icon = "⏳"
-    },
-
-    new TarazNote {
-        Title = "Silence is a Canvas",
-        Text = "Stillness is not emptiness — it is potential.",
-        Category = "Philosophy",
-        Icon = "🌙"
-    },
-
-    new TarazNote {
-        Title = "Emotion Through Imagery",
-        Text = "A powerful image can express what dialogue never could.",
-        Category = "Visual Design",
-        Icon = "🎨"
-    },
-
-})" />
+        new TarazNote { Quote = "Balance is not found. It is created.", Author = "Tarazism Philosophy", Accent = "#0B74FF" },
+        new TarazNote { Quote = "When the mind is still, truth becomes clear.", Author = "Persian Proverb", Accent = "#FFB86B" },
+        new TarazNote { Quote = "Simplicity is the ultimate sophistication.", Author = "Leonardo da Vinci", Accent = "#22C55E" }
+    })" />
+</section>
 
 
-<partial name="_TarazismTimeline" model="@(new List<TimelineEvent> {    
-    new TimelineEvent {
-        Year = "2019",
-        Title = "First Seeds of Tarazism",
-        Description = "The idea of balance in aesthetics and storytelling begins forming.",
-        Icon = "🌱"
-    },
+<!-- ===================== -->
+<!-- 8. COLLECTIONS -->
+<!-- ===================== -->
+<section class="mb-28 reveal">
+    <partial name="_TarazismCollections" model="@(new List<TarazCollection> {
 
-    new TimelineEvent {
-        Year = "2021",
-        Title = "Discovery of Foundational Works",
-        Description = "Ghost in the Shell, Mushishi, Tarkovsky, and other crafted worlds refine the philosophy.",
-        Icon = "📘"
-    },
+        new TarazCollection {
+            Title = "Philosophical Masterpieces",
+            Subtitle = "Deep stories with strong themes of balance and human nature.",
+            Items = new List<CollectionItem> {
+                new CollectionItem { Title = "Maste Eshgh", ImageUrl = "/img/gallery/5.jpg", Category = "Film" },
+                new CollectionItem { Title = "The Prince", ImageUrl = "/img/gallery/The Prince Makiavelli.jpg", Category = "Book" },
+                new CollectionItem { Title = "Ghost in the Shell", ImageUrl = "/img/gallery/Ghost in the Shell.jpg", Category = "Anime" },
+                new CollectionItem { Title = "Nier: Automata", ImageUrl = "/img/gallery/NieR Automata.jpg", Category = "Game" }
+            }
+        },
 
-    new TimelineEvent {
-        Year = "2023",
-        Title = "Concept Becomes a Framework",
-        Description = "Balance, restraint, atmosphere, intention — formalized into a curation method.",
-        Icon = "⚖️"
-    },
+        new TarazCollection {
+            Title = "Atmospheric Worlds",
+            Subtitle = "Immersive universes with rich visual storytelling.",
+            Items = new List<CollectionItem> {
+                new CollectionItem { Title = "Spirited Away", ImageUrl = "/img/gallery/Spirited Away.jpg", Category = "Anime" },
+                new CollectionItem { Title = "Qazvin Streets", ImageUrl = "/img/gallery/3.jpg", Category = "Photography" },
+                new CollectionItem { Title = "Elden Ring", ImageUrl = "/img/gallery/Elden Ring.jpg", Category = "Game" },
+                new CollectionItem { Title = "Taramp", ImageUrl = "/img/gallery/5.jpg", Category = "Film" }
+            }
+        },
 
-    new TimelineEvent {
-        Year = "2025",
-        Title = "Tarazism Website Launch",
-        Description = "The visual identity and curated hub brought to life with clarity and purpose.",
-        Icon = "✨"
-    }
-})" />
+        new TarazCollection {
+            Title = "Taraz Essentials",
+            Subtitle = "Foundational works representing balance, craftsmanship, and artistry.",
+            Items = new List<CollectionItem> {
+                new CollectionItem { Title = "Pedio", ImageUrl = "/img/gallery/5.jpg", Category = "Anime" },
+                new CollectionItem { Title = "The Witcher 3", ImageUrl = "/img/gallery/Witcher 3.jpg", Category = "Game" },
+                new CollectionItem { Title = "Dune", ImageUrl = "/img/gallery/4.jpg", Category = "Book" },
+                new CollectionItem { Title = "CyberTarab", ImageUrl = "/img/gallery/5.jpg", Category = "Film" }
+            }
+        }
+
+    })" />
+</section>
 
 
-@model List<TarazCollection>
+<!-- ===================== -->
+<!-- 9. PHILOSOPHY PANEL -->
+<!-- ===================== -->
+<section class="mb-28 reveal">
+    <partial name="_TarazismPhilosophy" />
+</section>
 
-<!-- Your sections here -->
 
-<partial name="_TarazismCollections" model="Model" />
+<!-- ===================== -->
+<!-- 10. QUOTE FLOW -->
+<!-- ===================== -->
+<section class="mb-28 reveal">
+    <partial name="_TarazismQuoteFlow" model="@(new List<QuoteItem> {
+        new QuoteItem { Text = "Silence is also a conversation.", Author = "Rumi", Source = "Masnavi" },
+        new QuoteItem { Text = "A single moment can hold a universe.", Author = "Ginko", Source = "Mushishi" },
+        new QuoteItem { Text = "Invisible stories wait for someone to see them.", Author = "Makoto Shinkai", Source = "Your Name" },
+        new QuoteItem { Text = "Do something with the entirety of your being.", Author = "Miyamoto Musashi" },
+        new QuoteItem { Text = "Beauty begins when intention becomes visible.", Author = "Tarazism" },
+        new QuoteItem { Text = "The stiller you are, the clearer you see.", Author = "Unknown" }
+    })" />
+</section>
 
 
-<partial name="_TarazismQuoteFlow" model="@(new List<QuoteItem> {
-    new QuoteItem {
-        Text = "Silence is also a conversation.",
-        Author = "Rumi",
-        Source = "Masnavi"
-    },
-    new QuoteItem {
-        Text = "A single moment can hold a universe.",
-        Author = "Ginko",
-        Source = "Mushishi"
-    },
-    new QuoteItem {
-        Text = "The world is full of invisible stories, waiting for someone to see them.",
-        Author = "Makoto Shinkai",
-        Source = "Your Name"
-    },
-    new QuoteItem {
-        Text = "When you do something, do it with the entirety of your being.",
-        Author = "Miyamoto Musashi"
-    },
-    new QuoteItem {
-        Text = "Beauty begins the moment intention becomes visible.",
-        Author = "Tarazism"
-    },
-    new QuoteItem {
-        Text = "The stiller you are, the clearer you see.",
-        Author = "Unknown"
-    }
-})" />
+<!-- ===================== -->
+<!-- 11. TIMELINE -->
+<!-- ===================== -->
+<section class="mb-28 reveal">
+    <partial name="_TarazismTimeline" model="@(new TarazTimeline {
+        Title = "Journey Through Balance",
+        Items = new List<TimelineItem> {
+            new TimelineItem {
+                Year = "2019",
+                Heading = "First Seeds of Tarazism",
+                Description = "The idea of balance in aesthetics and storytelling begins forming.",
+                Icon = "🌱"
+            },
+            new TimelineItem {
+                Year = "2021",
+                Heading = "Foundational Works Discovered",
+                Description = "Ghost in the Shell, Mushishi, Tarkovsky refine the philosophy.",
+                Icon = "📘"
+            },
+            new TimelineItem {
+                Year = "2023",
+                Heading = "Framework Formalized",
+                Description = "Balance, restraint, atmosphere, intention become core principles.",
+                Icon = "⚖️"
+            },
+            new TimelineItem {
+                Year = "2025",
+                Heading = "Tarazism Website Launch",
+                Description = "The curated hub comes to life.",
+                Icon = "✨"
+            }
+        }
+    })" />
+</section>
 
-<!-- TARAZ HUB -->
+
+<!-- ===================== -->
+<!-- 12. HUB CARDS -->
+<!-- ===================== -->
 <section id="taraz-hub" class="mb-28 reveal">
     <h2 class="text-3xl font-bold mb-6">Taraz Hub</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <partial name="_TarazismHubCard" model='new TarazCard {
-                                                     Title = "Books",
-                                                     Description = "Curated literature with depth and balance.",
-                                                     ImageUrl = "/img/covers/books.jpg"
-                                                 }' />
-
-        <partial name="_TarazismHubCard" model='new TarazCard {
-                                                     Title = "Anime",
-                                                     Description = "Meaningful shows with impact and harmony.",
-                                                     ImageUrl = "/img/covers/anime.jpg"
-                                                 }' />
-
-        <partial name="_TarazismHubCard" model='new TarazCard {
-                                                     Title = "Games",
-                                                     Description = "Masterfully crafted gameplay experiences.",
-                                                     ImageUrl = "/img/covers/games.jpg"
-                                                 }' />
+        <partial name="_TarazismHubCard" model='new TarazCard { Title = "Books", Description = "Curated literature with depth and balance.", ImageUrl = "/img/covers/books.jpg" }' />
+        <partial name="_TarazismHubCard" model='new TarazCard { Title = "Anime", Description = "Meaningful shows with impact and harmony.", ImageUrl = "/img/covers/anime.jpg" }' />
+        <partial name="_TarazismHubCard" model='new TarazCard { Title = "Games", Description = "Masterfully crafted gameplay experiences.", ImageUrl = "/img/covers/games.jpg" }' />
     </div>
 </section>
 
-<!-- REVIEWS -->
-<section id="reviews" class="mb-28 space-y-8 reveal">
+
+<!-- ===================== -->
+<!-- 13. REVIEWS -->
+<!-- ===================== -->
+<section id="reviews" class="mb-28 reveal space-y-8">
     <h2 class="text-3xl font-bold mb-6">Community Voices</h2>
 
     <partial name="_TarazismReviewCard" model='new ReviewModel {
-                                                ReviewerName = "Mammad Tarab",
-                                                ReviewerAvatarUrl = "/img/default-avatar.png",
-                                                Rating = 5,
-                                                ReviewText = "Tarazism changed how I view media — balanced, thoughtful, inspiring.",
-                                                ReviewDate = DateTime.Parse("2025-01-10")
-                                            }' />
+        ReviewerName = "Mammad Tarab",
+        ReviewerAvatarUrl = "/img/default-avatar.png",
+        Rating = 5,
+        ReviewText = "Tarazism changed how I view media — balanced, thoughtful, inspiring.",
+        ReviewDate = DateTime.Parse("2025-01-10")
+    }' />
 
     <partial name="_TarazismReviewCard" model='new ReviewModel {
-                                                ReviewerName = "Hazrat",
-                                                ReviewerAvatarUrl = "/img/default-avatar.png",
-                                                Rating = 4,
-                                                ReviewText = "Great recommendations. Clean presentation and meaningful curation. Ghavi Budid",
-                                                ReviewDate = DateTime.Parse("2025-02-02")
-                                            }' />
+        ReviewerName = "Hazrat",
+        ReviewerAvatarUrl = "/img/default-avatar.png",
+        Rating = 4,
+        ReviewText = "Great recommendations. Clean presentation and meaningful curation. Ghavi Budid",
+        ReviewDate = DateTime.Parse("2025-02-02")
+    }' />
 </section>
 
-<!-- FULL GALLERY -->
+
+<!-- ===================== -->
+<!-- 14. FULL GALLERY -->
+<!-- ===================== -->
 <section id="gallery" class="mb-28 reveal">
     <h2 class="text-3xl font-bold mb-6">Full Gallery</h2>
     <partial name="_TarazismGallery" />

@@ -15,6 +15,33 @@ namespace Tarazism.Controllers
 
         public IActionResult Index()
         {
+            var timeline = new TarazTimeline
+            {
+                Title = "Journey Through Balance",
+                Items = new()
+                {
+                    new TimelineItem {
+                        Year = "2019",
+                        Heading = "The Idea of Tarazism",
+                        Description = "The philosophy begins here — the search for balance in art, life, and expression.",
+                        ImageUrl = "/img/timeline/idea.jpg"
+                    },
+                    new TimelineItem {
+                        Year = "2021",
+                        Heading = "Curation Style Emerges",
+                        Description = "Anime, books, and games are analyzed with depth and harmony.",
+                        ImageUrl = "/img/timeline/curation.jpg"
+                    },
+                    new TimelineItem {
+                        Year = "2025",
+                        Heading = "Tarazism Website Launch",
+                        Description = "Tarazism becomes a digital philosophy — sharing balance with the world.",
+                        ImageUrl = "/img/timeline/website.jpg"
+                    }
+                }
+            };
+
+            ViewBag.Timeline = timeline;
             return View();
         }
 
@@ -28,5 +55,4 @@ namespace Tarazism.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-    }
-}
+    }    }
