@@ -265,3 +265,62 @@
     <h2 class="text-3xl font-bold mb-6">Full Gallery</h2>
     <partial name="_TarazismGallery" />
 </section>
+
+        <partial name="_TarazismQuiz" model="@(new TarazQuiz {
+    Questions = new List<QuizQuestion> {
+        new QuizQuestion { Question = "How do you handle silence?", Options = new() { "I thrive in it", "I get uneasy", "I ignore it", "I seek sound" } },
+        new QuizQuestion { Question = "Pick an environment", Options = new() { "Forest", "Neon City", "Ocean", "Library" } },
+        new QuizQuestion { Question = "Your strength?", Options = new() { "Focus", "Observation", "Emotion", "Creativity" } },
+    },
+
+    Results = new List<QuizResult> {
+        new QuizResult { Type = "The Observer", Description = "Calm, thoughtful, detail-oriented.", ImageUrl = "/img/quiz/observer.jpg" },
+        new QuizResult { Type = "The Wanderer", Description = "Curious, peaceful, intuitive.", ImageUrl = "/img/quiz/wanderer.jpg" },
+        new QuizResult { Type = "The Creator", Description = "Expressive, imaginative, visionary.", ImageUrl = "/img/quiz/creator.jpg" },
+        new QuizResult { Type = "The Analyst", Description = "Precise, logical, structured.", ImageUrl = "/img/quiz/analyst.jpg" }
+    }
+})" />
+
+        <partial name="_TarazismRoadmap" model="@(new List<TarazRoadmap> {
+    new TarazRoadmap {
+        Year = "2024–2025",
+        Milestones = new List<RoadmapMilestone> {
+            new RoadmapMilestone { Title = "Taraz Colors & Identity", Status = "Done", Icon = "🎨" },
+            new RoadmapMilestone { Title = "Full Gallery System", Status = "Done", Icon = "🖼" },
+            new RoadmapMilestone { Title = "Taraz Quiz", Status = "In Progress", Icon = "🧠" }
+        }
+    },
+    new TarazRoadmap {
+        Year = "2025–2026",
+        Milestones = new List<RoadmapMilestone> {
+            new RoadmapMilestone { Title = "Taraz AI Recommender", Status = "Planned", Icon = "🤖" },
+            new RoadmapMilestone { Title = "Mobile App", Status = "Planned", Icon = "📱" },
+            new RoadmapMilestone { Title = "Taraz Lore Book", Status = "Planned", Icon = "📘" }
+        }
+    }
+})" />
+
+            <partial name="_TarazismLore" model="@(new List<LoreCard> {
+
+    new LoreCard {
+        Title = "The Four Pillars",
+        Description = "Balance, Craft, Emotion, Aesthetic — the foundation of the Taraz worldview.",
+        ImageUrl = "/img/lore/pillars.jpg",
+        Accent = "#0B74FF"
+    },
+
+    new LoreCard {
+        Title = "The Silent Path",
+        Description = "A philosophy teaching stillness as a gateway to clarity.",
+        ImageUrl = "/img/lore/silent.jpg",
+        Accent = "#FFB86B"
+    },
+
+    new LoreCard {
+        Title = "The Wanderer Spirit",
+        Description = "A symbolic figure representing curiosity without chaos.",
+        ImageUrl = "/img/lore/wanderer.jpg",
+        Accent = "#22C55E"
+    }
+
+})" />

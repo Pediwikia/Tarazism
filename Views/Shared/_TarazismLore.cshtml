@@ -1,0 +1,19 @@
+﻿@model List<Tarazism.Models.LoreCard>
+
+<section class="mb-28 reveal">
+    <h2 class="text-3xl font-bold mb-6">Taraz Lore</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+        @foreach (var card in Model)
+        {
+            <div class="p-6 rounded-xl shadow-lg border-l-4"
+                 style="border-color:@card.Accent">
+
+                <img src="@card.ImageUrl" class="rounded-xl mb-4" />
+
+                <h3 class="text-xl font-bold mb-2">@card.Title</h3>
+                <p class="text-gray-600 dark:text-gray-300">@card.Description</p>
+            </div>
+        }
+    </div>
+</section>

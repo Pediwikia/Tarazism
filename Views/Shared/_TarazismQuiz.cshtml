@@ -1,0 +1,52 @@
+﻿@model Tarazism.Models.TarazQuiz
+
+<section class="mb-28 reveal">
+    <h2 class="text-3xl font-bold mb-6">Taraz Personality Quiz</h2>
+
+    <div id="quiz-container" class="space-y-10">
+
+        @for (int i = 0; i < Model.Questions.Count; i++)
+        {
+            <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg">
+                <h3 class="text-xl font-semibold mb-4">@Model.Questions[i].Question</h3>
+
+                @foreach (var opt in Model.Questions[i].Options)
+                {
+                    <label class="block mb-2 cursor-pointer">
+                        <input type="radio"
+                               name="q@i"
+                               value="@opt"
+                               class="mr-2" />
+                        @opt
+                    </label>
+                }
+            </div>
+        }
+
+        <button id="quiz-submit"
+                class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+            Get My Result
+        </button>
+
+        <div id="quiz-result" class="mt-10 hidden p-6 bg-black text-white rounded-xl text-center">
+            <h3 class="text-2xl font-bold" id="result-title"></h3>
+            <p class="text-gray-300 mt-2" id="result-text"></p>
+            <img id="result-img" class="mx-auto mt-4 rounded-xl w-48" />
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById("quiz-submit").onclick = () => {
+        // Simple mock logic: random result
+        const results = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Results));
+
+        const pick = results[Math.floor(Math.random() * results.length)];
+
+        document.getElementById("result-title").innerText = pick.type;
+        document.getElementById("result-text").innerText = pick.description;
+        document.getElementById("result-img").src = pick.imageUrl;
+
+        document.getElementById("quiz-result").classList.remove("hidden");
+    };
+</script>
