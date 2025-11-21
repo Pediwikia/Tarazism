@@ -1,0 +1,60 @@
+﻿@model List<Tarazism.Models.TrendingItem>
+
+<section id="trending-now" class="mt-20">
+    <h2 class="text-3xl font-bold mb-6">Trending Now</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+        @* Large #1 item *@
+        @{
+            var first = Model.FirstOrDefault(x => x.Rank == 1);
+        }
+        @if (first != null)
+        {
+            <div class="md:col-span-2 row-span-2 relative group">
+                <img src="@first.ImageUrl" class="w-full h-full object-cover rounded-xl shadow-lg
+                    transform group-hover:scale-[1.02] transition duration-300" />
+
+                <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full font-bold shadow">
+                    #@first.Rank Trending
+                </span>
+
+                <div class="absolute bottom-4 left-4">
+                    <h3 class="text-2xl font-bold text-white drop-shadow">@first.Title</h3>
+                    <p class="text-gray-200 text-sm">@first.Category</p>
+                </div>
+            </div>
+        }
+
+        @* Medium #2 and #3 *@
+        @foreach (var item in Model.Where(x => x.Rank == 2 || x.Rank == 3))
+        {
+            <div class="relative group">
+                <img src="@item.ImageUrl" class="w-full h-64 object-cover rounded-xl shadow
+                        transform group-hover:scale-[1.03] transition duration-300" />
+
+                <span class="absolute top-3 left-3 bg-yellow-500 text-white px-3 py-1 rounded-full shadow">
+                    #@item.Rank
+                </span>
+
+                <div class="absolute bottom-3 left-3">
+                    <h3 class="text-xl font-bold text-white drop-shadow">@item.Title</h3>
+                </div>
+            </div>
+        }
+
+        @* Smaller #4, #5, #6 *@
+        @foreach (var item in Model.Where(x => x.Rank >= 4))
+        {
+            <div class="relative group">
+                <img src="@item.ImageUrl" class="w-full h-40 object-cover rounded-xl shadow
+                        transform group-hover:scale-[1.05] transition duration-300" />
+
+                <span class="absolute top-3 left-3 bg-gray-800 text-white px-3 py-1 rounded-full shadow">
+                    #@item.Rank
+                </span>
+            </div>
+        }
+
+    </div>
+</section>

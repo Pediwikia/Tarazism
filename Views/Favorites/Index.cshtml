@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Favorites";
+}
+<section class="py-20 max-w-screen-xl mx-auto px-4">
+    <h1 class="text-4xl font-bold mb-6">Your Favorites</h1>
+
+    <div id="favoritesContainer" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Filled by JS -->
+    </div>
+
+    <div id="noFavs" class="text-gray-500 mt-6 hidden">
+        You haven't added any favorites yet. Explore the <a href="/" class="text-blue-600">site</a> to add some.
+    </div>
+</section>
+
+<script>
+    (function () {
+        const favs = JSON.parse(localStorage.getItem("favorites") || "[]");
+        const container = document.getElementById("favoritesContainer");
+        const noFavs = document.getElementById("noFavs");
+
+        if (!favs.length) {
+            noFavs.classList.remove("hidden");
+            return;
+        }
+
+        // Simple lookup sample data - ideally fetched from server
+        const sampleCatalog = [
+            { title: "Dune", img: "/img/covers/books.jpg", url: "/Item/Details?title=Dune" },
+            { title: "Spirited Away", img: "/img/gallery/1.jpg", url: "/Item/Details?title=Spirited Away" },
+            { title: "Elden Ring", img: "/img/gallery/6.jpg", url: "/Item/Details?title=Elden Ring" }
+        ];
+
+        favs.forEach(title => {
+            const meta = sampleCatalog.find(s => s.title === title) || { title, img: "/img/default-placeholder.png", url: "#" };
+            const card = document.createElement("div");
+            card.className = "bg-white dark:bg-gray-800 rounded-xl shadow p-4 flex flex-col";
+            card.innerHTML = `
+                <img src="${meta.img}" class="h-48 object-cover rounded-md mb-3" />
+                <h3 class="font-semibold text-lg">${meta.title}</h3>
+                <div class="mt-3 flex items-center justify-between">
+                    <a href="${meta.url}" class="text-blue-600">View</a>
+                    <button class="remove-btn text-sm text-red-500">Remove</button>
+                </div>
+            `;
+            container.appendChild(card);
+
+            card.querySelector(".remove-btn").addEventListener("click", () => {
+                let fs = JSON.parse(localStorage.getItem("favorites") || "[]");
+                fs = fs.filter(f => f !== title);
+                localStorage.setItem("favorites", JSON.stringify(fs));
+                card.remove();
+                if (!fs.length) noFavs.classList.remove("hidden");
+            });
+        });
+    })();
+</script>

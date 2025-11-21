@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tarazism</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Flowbite -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/Tarazism.css" asp-append-version="true" />
+
+    <style>
+        body {
+            font-family: Inter, Vazirmatn, sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+    <!-- =========================== -->
+    <!-- HEADER / NAVIGATION        -->
+    <!-- =========================== -->
+
+    <nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a asp-controller="Home" asp-action="Index" class="flex items-center space-x-3">
+                <img src="~/img/logo-wordmark.svg" class="h-9 dark:hidden" alt="Tarazism">
+                <img src="~/img/logo-mark.svg" class="h-9 hidden dark:block" alt="Tarazism">
+            </a>
+
+            <!-- Mobile menu button -->
+            <button data-collapse-toggle="mobile-menu"
+                    type="button"
+                    class="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                ☰
+            </button>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex space-x-8 text-md font-medium">
+                <li><a asp-controller="Home" asp-action="Index" class="hover:text-blue-600 dark:hover:text-yellow-400">Home</a></li>
+                <li><a href="#reviews" class="hover:text-blue-600 dark:hover:text-yellow-400">Reviews</a></li>
+                <li><a href="#gallery" class="hover:text-blue-600 dark:hover:text-yellow-400">Gallery</a></li>
+                <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-yellow-400">Contact</a></li>
+                <li><a href="/Category/Books" class="hover:text-blue-600 dark:hover:text-yellow-400">Books</a></li>
+                <li><a href="/Category/Anime" class="hover:text-blue-600 dark:hover:text-yellow-400">Anime</a></li>
+                <li><a href="/Category/Games" class="hover:text-blue-600 dark:hover:text-yellow-400">Games</a></li>
+                <li><a href="/Favorites" class="hover:text-blue-600">Favorites</a></li>
+                <li><a href="/Collection" class="hover:text-blue-600">Collections</a></li>
+                <li><a href="/Favorites" class="hover:text-blue-600">Favorites</a></li>
+                <li><a href="/User/Profile?username=demo" class="hover:text-blue-600">Profile</a></li>
+                <li><a href="/Search/Results" class="hover:text-blue-600">Search</a></li>
+
+            </ul>
+
+            <!-- Dark Mode Toggle -->
+            <button id="theme-toggle" type="button"
+                    class="ml-4 text-gray-600 dark:text-gray-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                🌙
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-3">
+            <a asp-controller="Home" asp-action="Index" class="block hover:text-blue-600 dark:hover:text-yellow-400">Home</a>
+            <a href="#reviews" class="block hover:text-blue-600 dark:hover:text-yellow-400">Reviews</a>
+            <a href="#gallery" class="block hover:text-blue-600 dark:hover:text-yellow-400">Gallery</a>
+            <a href="#contact" class="block hover:text-blue-600 dark:hover:text-yellow-400">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- =========================== -->
+    <!-- MAIN CONTENT                -->
+    <!-- =========================== -->
+    <main class="max-w-screen-xl mx-auto px-4 py-10">
+        @RenderBody()
+    </main>
+
+    <!-- =========================== -->
+    <!-- FOOTER                      -->
+    <!-- =========================== -->
+
+    <footer class="bg-black text-white py-10 mt-20">
+        <div class="max-w-screen-xl mx-auto px-4 flex flex-col items-center space-y-4 text-center">
+
+            <img src="~/img/logo-mark.svg" class="h-12 opacity-80" alt="Tarazism">
+
+            <p class="text-gray-300">&copy; 2025 Tarazism. All Rights Reserved.</p>
+
+            <div class="flex space-x-6">
+                <a href="https://instagram.com/taraz.photo" target="_blank" class="hover:text-yellow-400">Instagram</a>
+                <a href="#" class="hover:text-yellow-400">Twitter</a>
+                <a href="#" class="hover:text-yellow-400">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- =========================== -->
+    <!-- SCRIPTS                     -->
+    <!-- =========================== -->
+    <!-- Flowbite -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.js"></script>
+
+    <!-- Dark mode -->
+    <script>
+        document.getElementById("theme-toggle").onclick = () =>
+            document.documentElement.classList.toggle("dark");
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        // Scroll reveal using IntersectionObserver
+        const reveals = document.querySelectorAll('.reveal');
+
+        const options = {
+            threshold: 0.15,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // reveal only once
+                }
+            });
+        }, options);
+
+        reveals.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+    <script>
+        /* --------------------------
+           PARALLAX HERO MOVEMENT
+        --------------------------- */
+        document.addEventListener("mousemove", (e) => {
+            const layer = document.getElementById("parallax-layer");
+            const x = (e.clientX / window.innerWidth - 0.5) * 15;
+            const y = (e.clientY / window.innerHeight - 0.5) * 15;
+            layer.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        /* --------------------------
+           PARTICLE GENERATOR
+        --------------------------- */
+        const container = document.getElementById("particles-container");
+
+        for (let i = 0; i < 25; i++) {
+            const particle = document.createElement("div");
+
+            particle.classList.add("particle");
+            particle.style.position = "absolute";
+            particle.style.borderRadius = "50%";
+            particle.style.opacity = Math.random() * 0.4 + 0.2;
+
+            const size = Math.random() * 10 + 6;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+
+            particle.style.background = "radial-gradient(circle,rgba(255,255,255,0.9),rgba(255,255,255,0))";
+            particle.style.animation = `particleFloat ${3 + Math.random() * 5}s ease-in-out infinite`;
+
+            container.appendChild(particle);
+        }
+    </script>
+    <script>
+        /* ===============================
+           Search Filter
+        =============================== */
+        document.getElementById("searchInput").addEventListener("input", function () {
+            const value = this.value.toLowerCase();
+            document.querySelectorAll(".category-card").forEach(card => {
+                const title = card.dataset.title.toLowerCase();
+                card.style.display = title.includes(value) ? "block" : "none";
+            });
+        });
+
+
+        /* ===============================
+           Tag Filter
+        =============================== */
+        document.querySelectorAll(".tag-option").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const tag = btn.dataset.tag.toLowerCase();
+
+                document.querySelectorAll(".category-card").forEach(card => {
+                    const tags = card.dataset.tags.toLowerCase();
+                    card.style.display = tags.includes(tag) ? "block" : "none";
+                });
+            });
+        });
+
+
+        /* ===============================
+           Quick View Modal
+        =============================== */
+        const modal = document.getElementById("quickViewModal");
+
+        document.querySelectorAll(".quick-view").forEach(img => {
+            img.addEventListener("click", () => {
+                document.getElementById("modalImg").src = img.dataset.img;
+                document.getElementById("modalTitle").innerText = img.dataset.title;
+                document.getElementById("modalDesc").innerText = img.dataset.desc;
+                document.getElementById("modalRating").innerText = "⭐ " + img.dataset.rating + " / 5.0";
+                modal.classList.remove("hidden");
+            });
+        });
+
+        document.getElementById("closeModal").onclick = () =>
+            modal.classList.add("hidden");
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) modal.classList.add("hidden");
+        });
+
+
+        /* ===============================
+           Favorites (localStorage)
+        =============================== */
+        document.querySelectorAll(".favorite-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const title = btn.dataset.title;
+
+                let favs = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+                if (!favs.includes(title)) {
+                    favs.push(title);
+                    localStorage.setItem("favorites", JSON.stringify(favs));
+                    btn.innerText = "💛 Favorited!";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

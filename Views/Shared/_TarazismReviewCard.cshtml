@@ -1,0 +1,57 @@
+﻿@* Views/Shared/_TarazismReviewCard.cshtml *@
+@model Tarazism.Models.ReviewModel?
+
+@if (Model == null)
+{
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
+        <!-- Optional placeholder or nothing -->
+        <p class="text-gray-500">No review available.</p>
+    </div>
+}
+else
+{
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 flex space-x-4">
+    <!-- Avatar -->
+    <img src="@Model.ReviewerAvatarUrl"
+         class="w-12 h-12 rounded-full object-cover"
+         onerror="this.src='/img/default-avatar.png';" />
+
+    <!-- Content -->
+    <div class="flex-1">
+        <!-- Name + Date -->
+        <div class="flex justify-between items-center">
+            <h3 class="font-semibold text-gray-900 dark:text-white">
+                @Model.ReviewerName
+            </h3>
+
+            <span class="text-sm text-gray-500 dark:text-gray-400">
+                @Model.ReviewDate.ToString("MMMM d, yyyy")
+            </span>
+        </div>
+
+        <!-- Rating -->
+        <div class="flex items-center mt-1">
+            @for (int i = 1; i <= 5; i++)
+            {
+                if (i <= Model.Rating)
+                {
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c..."></path>
+                    </svg>
+                }
+                else
+                {
+                    <svg class="w-5 h-5 text-gray-300 dark:text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c..."></path>
+                    </svg>
+                }
+            }
+        </div>
+
+        <!-- Review Text -->
+        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed">
+            @Model.ReviewText
+        </p>
+    </div>
+</div>
+}

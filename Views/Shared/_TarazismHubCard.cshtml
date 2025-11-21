@@ -1,0 +1,14 @@
+﻿@model Tarazism.Models.TarazCard
+
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition overflow-hidden">
+    <img src="@Model.ImageUrl" class="h-40 w-full object-cover" />
+
+    <div class="p-5">
+        <h3 class="text-xl font-bold">@Model.Title</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">@Model.Description</p>
+
+        <a href="@Model.LinkUrl" class="mt-4 inline-block text-taraz-500 hover:text-taraz-600 font-semibold">
+            Explore →
+        </a>
+    </div>
+</div>

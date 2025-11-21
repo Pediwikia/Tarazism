@@ -1,0 +1,50 @@
+﻿@model List<Tarazism.Models.TarazCollection>
+
+<section id="collections" class="mt-20 space-y-20">
+
+    @foreach (var col in Model)
+    {
+        <div class="reveal">
+
+            <!-- Header -->
+            <div class="flex items-baseline justify-between mb-4">
+                <div>
+                    <h2 class="text-3xl font-bold">@col.Title</h2>
+                    <p class="text-gray-500 dark:text-gray-400">@col.Subtitle</p>
+                </div>
+            </div>
+
+            <!-- Horizontal scroll row -->
+            <div class="flex space-x-6 overflow-x-auto scrollbar-hide pb-2">
+                @foreach (var item in col.Items)
+                {
+                    <div class="min-w-[220px] relative group">
+
+                        <img src="@item.ImageUrl"
+                             class="w-56 h-80 object-cover rounded-xl shadow-lg
+                                             transform group-hover:scale-[1.04] transition duration-300" />
+
+                        <div class="absolute bottom-3 left-3">
+                            <h3 class="text-lg font-semibold text-white drop-shadow">@item.Title</h3>
+                            <p class="text-sm text-gray-200">@item.Category</p>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    }
+
+</section>
+
+<style>
+    /* Hide scrollbar on horizontal scroll */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>

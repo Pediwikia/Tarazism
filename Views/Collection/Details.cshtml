@@ -1,0 +1,16 @@
+﻿@model Tarazism.Models.Collection
+<section class="py-12 max-w-screen-xl mx-auto px-4">
+    <h1 class="text-3xl font-bold mb-2">@Model.Title</h1>
+    <p class="text-gray-600 dark:text-gray-300 mb-6">@Model.Description</p>
+
+    <h2 class="text-xl font-semibold mb-4">Items</h2>
+    <ul class="space-y-3">
+        @foreach (var t in Model.ItemTitles)
+        {
+            <li class="p-3 bg-white dark:bg-gray-800 rounded shadow flex justify-between">
+                <span>@t</span>
+                <a href="/Item/Details?title=@Uri.EscapeDataString(t)" class="text-blue-600">Open</a>
+            </li>
+        }
+    </ul>
+</section>

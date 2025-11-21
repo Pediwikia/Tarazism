@@ -1,0 +1,19 @@
+<!-- /wwwroot/img/logo-wordmark.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="64" viewBox="0 0 320 64" role="img" aria-labelledby="tarazLogoTitle">
+  <title id="tarazLogoTitle">Tarazism — Balance in All Things</title>
+
+  <!-- Background is transparent; color is controlled by CSS or fill attributes -->
+  <!-- Use the Inter / Vazirmatn fonts loaded on the page (fallbacks included) -->
+
+  <!-- Wordmark: Taraz + ism (styled) -->
+  <g font-family="Inter, Vazirmatn, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial" font-weight="700">
+    <!-- "Taraz" part -->
+    <text x="0" y="42" font-size="36" fill="#0B74FF">Taraz</text>
+
+    <!-- "ism" part (accent, lighter) -->
+    <text x="186" y="42" font-size="36" fill="#FFB86B" font-weight="600">ism</text>
+  </g>
+
+  <!-- Optional small tagline -->
+  <text x="0" y="60" font-size="9" fill="#94A3B8" font-family="Inter, sans-serif">Balance in all things</text>
+</svg>
