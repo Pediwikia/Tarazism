@@ -165,3 +165,27 @@ html {
         transform: translateY(0) scale(1);
     }
 }
+/* Floating quote animation */
+@keyframes floatSoft {
+    0% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-12px) translateX(6px);
+    }
+
+    100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 1;
+    }
+}
+
+.quote-card {
+    animation: floatSoft 6s ease-in-out infinite;
+}

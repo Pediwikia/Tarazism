@@ -1,24 +1,40 @@
 ﻿@model List<Tarazism.Models.TarazNote>
 
-<section id="taraz-notes" class="mt-20">
-    <h2 class="text-3xl font-bold mb-8 text-center">
-        Taraz Notes
-    </h2>
+<section id="notes" class="mt-28 reveal">
+    <h2 class="text-3xl font-bold mb-10 text-center">Taraz Notes</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
         @foreach (var note in Model)
         {
-            <div class="p-6 bg-white dark:bg-gray-800 shadow rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition">
-                <p class="text-lg italic text-gray-900 dark:text-gray-100">
-                    "@note.Quote"
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow hover:shadow-xl transition
+                            border border-gray-200 dark:border-gray-700 relative overflow-hidden">
+
+                <!-- Floating corner circle -->
+                <div class="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-blue-600 to-yellow-500
+                                opacity-20 rounded-full blur-xl"></div>
+
+                <!-- Icon -->
+                @if (!string.IsNullOrEmpty(note.Icon))
+                {
+                    <div class="text-3xl mb-3">@note.Icon</div>
+                }
+
+                <!-- Title -->
+                <h3 class="text-xl font-semibold mb-2">@note.Title</h3>
+
+                <!-- Text -->
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                    @note.Text
                 </p>
 
-                <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                    — @note.Author
-                </p>
-
-                <div class="w-16 h-1 mt-4 rounded" style="background:@note.Accent;"></div>
+                <!-- Category badge -->
+                <span class="px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700
+                                 text-gray-700 dark:text-gray-300">
+                    @note.Category
+                </span>
             </div>
         }
+
     </div>
 </section>

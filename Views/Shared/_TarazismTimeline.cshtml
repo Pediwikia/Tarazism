@@ -1,0 +1,27 @@
+﻿@model List<Tarazism.Models.TimelineEvent>
+
+<section id="timeline" class="mt-32 mb-32 reveal">
+    <h2 class="text-3xl font-bold mb-12 text-center">Taraz Timeline</h2>
+
+    <div class="relative border-l border-gray-300 dark:border-gray-700 ml-6">
+
+        @foreach (var e in Model)
+        {
+            <div class="mb-12 ml-6">
+
+                <!-- Dot -->
+                <span class="absolute -left-3 flex items-center justify-center w-6 h-6
+                                 bg-blue-600 rounded-full ring-4 ring-white dark:ring-gray-900">
+                    @e.Icon
+                </span>
+
+                <h3 class="text-xl font-semibold">@e.Year — @e.Title</h3>
+
+                <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    @e.Description
+                </p>
+            </div>
+        }
+
+    </div>
+</section>

@@ -7,6 +7,14 @@
 <section class="mb-28 reveal">
     <partial name="_TarazismHero" />
 </section>
+<partial name="_TarazismSpotlight" model='new SpotlightItem {
+    Title = "Ghost in the Shell",
+    Subtitle = "A cyberpunk meditation on identity and consciousness.",
+    ImageUrl = "/img/spotlight/gits.jpg",
+    Description = "This work captures the essence of Tarazism: philosophical depth, aesthetic precision, emotional restraint, and meticulous craftsmanship.",
+    ButtonText = "Learn More",
+    ButtonUrl = "/details/gits"
+}' />
 
 <!-- FEATURED GALLERY -->
 <section id="featured" class="mb-28 reveal">
@@ -30,6 +38,16 @@
     new TrendingItem { Rank = 6, Title = "The Witcher 3", ImageUrl = "/img/gallery/Witcher 3.jpg", Category = "Game" }
 })" />
 
+<partial name="_TarazismScore" model='new TarazScore {
+    Title = "Blade Runner 2049",
+    ImageUrl = "/img/gallery/5.jpg",
+    Balance = 9,
+    Craft = 10,
+    Emotion = 8,
+    Aesthetic = 10
+}' />
+
+    
 <partial name="_TarazismUpcoming" model="@(new List<UpcomingItem> {
     new UpcomingItem {
         Title = "GTA VI",
@@ -112,6 +130,114 @@
         }
     }
 
+})" />
+<partial name="_TarazismPhilosophy" />
+
+    <partial name="_TarazismNotes" model="@(new List<TarazNote> {
+
+    new TarazNote {
+        Title = "The Beauty of Restraint",
+        Text = "True artistry is not found in chaos, but in what is intentionally left unsaid.",
+        Category = "Philosophy",
+        Icon = "✨"
+    },
+
+    new TarazNote {
+        Title = "Atmosphere Over Action",
+        Text = "Some worlds speak more through silence than through noise. This is the essence of Taraz.",
+        Category = "Aesthetics",
+        Icon = "🌫"
+    },
+
+    new TarazNote {
+        Title = "Craft Reveals the Soul",
+        Text = "When creators obsess over detail, the viewer feels it — even if they cannot explain why.",
+        Category = "Craft",
+        Icon = "🛠"
+    },
+
+    new TarazNote {
+        Title = "The Weight of a Moment",
+        Text = "A single well-crafted scene can outweigh an entire season of empty spectacle.",
+        Category = "Storytelling",
+        Icon = "⏳"
+    },
+
+    new TarazNote {
+        Title = "Silence is a Canvas",
+        Text = "Stillness is not emptiness — it is potential.",
+        Category = "Philosophy",
+        Icon = "🌙"
+    },
+
+    new TarazNote {
+        Title = "Emotion Through Imagery",
+        Text = "A powerful image can express what dialogue never could.",
+        Category = "Visual Design",
+        Icon = "🎨"
+    },
+
+})" />
+
+
+<partial name="_TarazismTimeline" model="@(new List<TimelineEvent> {    
+    new TimelineEvent {
+        Year = "2019",
+        Title = "First Seeds of Tarazism",
+        Description = "The idea of balance in aesthetics and storytelling begins forming.",
+        Icon = "🌱"
+    },
+
+    new TimelineEvent {
+        Year = "2021",
+        Title = "Discovery of Foundational Works",
+        Description = "Ghost in the Shell, Mushishi, Tarkovsky, and other crafted worlds refine the philosophy.",
+        Icon = "📘"
+    },
+
+    new TimelineEvent {
+        Year = "2023",
+        Title = "Concept Becomes a Framework",
+        Description = "Balance, restraint, atmosphere, intention — formalized into a curation method.",
+        Icon = "⚖️"
+    },
+
+    new TimelineEvent {
+        Year = "2025",
+        Title = "Tarazism Website Launch",
+        Description = "The visual identity and curated hub brought to life with clarity and purpose.",
+        Icon = "✨"
+    }
+})" />
+
+<partial name="_TarazismQuoteFlow" model="@(new List<QuoteItem> {
+    new QuoteItem {
+        Text = "Silence is also a conversation.",
+        Author = "Rumi",
+        Source = "Masnavi"
+    },
+    new QuoteItem {
+        Text = "A single moment can hold a universe.",
+        Author = "Ginko",
+        Source = "Mushishi"
+    },
+    new QuoteItem {
+        Text = "The world is full of invisible stories, waiting for someone to see them.",
+        Author = "Makoto Shinkai",
+        Source = "Your Name"
+    },
+    new QuoteItem {
+        Text = "When you do something, do it with the entirety of your being.",
+        Author = "Miyamoto Musashi"
+    },
+    new QuoteItem {
+        Text = "Beauty begins the moment intention becomes visible.",
+        Author = "Tarazism"
+    },
+    new QuoteItem {
+        Text = "The stiller you are, the clearer you see.",
+        Author = "Unknown"
+    }
 })" />
 
 <!-- TARAZ HUB -->

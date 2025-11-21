@@ -1,0 +1,31 @@
+﻿@model List<Tarazism.Models.QuoteItem>
+
+<section id="quoteflow" class="mt-32 mb-32 reveal">
+    <h2 class="text-3xl font-bold mb-10 text-center">QuoteFlow</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        @foreach (var q in Model)
+        {
+            <div class="quote-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow
+                            border border-gray-200 dark:border-gray-700
+                            transition hover:shadow-lg hover:-translate-y-1">
+
+                <p class="italic text-gray-800 dark:text-gray-200 text-lg mb-3">
+                    “@q.Text”
+                </p>
+
+                <p class="text-gray-600 dark:text-gray-400 text-sm">
+                    — @q.Author
+                    @if (!string.IsNullOrEmpty(q.Source))
+                    {
+                        <span class="text-xs text-blue-500 dark:text-blue-400 ml-1">
+                            (@q.Source)
+                        </span>
+                    }
+                </p>
+            </div>
+        }
+
+    </div>
+</section>
