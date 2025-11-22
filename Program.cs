@@ -5,10 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<TarazismDbContext>(options =>
+
+// Register ONLY the correct DbContext
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TarazismDb")));
 
-// Session (for login)
+// Session
 builder.Services.AddSession();
 
 var app = builder.Build();
