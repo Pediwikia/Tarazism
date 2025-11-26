@@ -8,7 +8,7 @@ namespace Tarazism.Controllers
         // demo profile
         public IActionResult Profile(string username = "demo")
         {
-            var u = new UserProfile
+            var u = new UserProfileViewModel
             {
                 Username = username,
                 DisplayName = "Demo User",

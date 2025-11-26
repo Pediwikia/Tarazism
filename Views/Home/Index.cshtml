@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home";
 }
 @using Tarazism.Models
-
+@using Tarazism.Models.ViewModels
 <!-- ===================== -->
 <!-- 1. HERO -->
 <!-- ===================== -->
@@ -240,7 +240,7 @@
 <section id="reviews" class="mb-28 reveal space-y-8">
     <h2 class="text-3xl font-bold mb-6">Community Voices</h2>
 
-    <partial name="_TarazismReviewCard" model='new ReviewModel {
+    <partial name="_TarazismReviewCard" model='new ReviewViewModel {
         ReviewerName = "Mammad Tarab",
         ReviewerAvatarUrl = "/img/default-avatar.png",
         Rating = 5,
@@ -248,7 +248,7 @@
         ReviewDate = DateTime.Parse("2025-01-10")
     }' />
 
-    <partial name="_TarazismReviewCard" model='new ReviewModel {
+    <partial name="_TarazismReviewCard" model='new ReviewViewModel {
         ReviewerName = "Hazrat",
         ReviewerAvatarUrl = "/img/default-avatar.png",
         Rating = 4,

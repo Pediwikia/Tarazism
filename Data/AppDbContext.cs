@@ -6,10 +6,11 @@ namespace Tarazism.Data
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
-            : base(options) { }
+            : base(options)
+        {
+        }
 
-        // === TABLES ===
-        public DbSet<TarazUser> Users { get; set; } = null!;
-        public DbSet<ReviewModel> Reviews { get; set; } = null!;
+        public DbSet<TarazUser> Users { get; set; }
+        public DbSet<UserReview> Reviews { get; set; }
     }
 }

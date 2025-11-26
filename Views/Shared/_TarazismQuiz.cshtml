@@ -40,7 +40,6 @@
     document.getElementById("quiz-submit").onclick = () => {
         // Simple mock logic: random result
         const results = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Results));
-
         const pick = results[Math.floor(Math.random() * results.length)];
 
         document.getElementById("result-title").innerText = pick.type;
